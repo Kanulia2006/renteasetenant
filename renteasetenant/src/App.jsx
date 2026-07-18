@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
@@ -12,16 +13,23 @@ import Settings from "./pages/Settings";
 import EditProfile from "./pages/EditProfile";
 import ChangePassword from "./pages/ChangePassword";
 import { initialNotifications } from "./data/mockData";
+import { logout } from "./lib/auth";
 
 export default function App() {
   const [activePage, setActivePage] = useState("dashboard");
   const [currentRole, setCurrentRole] = useState("Tenant");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigateTo = useNavigate();
 
   const unreadCount = initialNotifications.filter((n) => !n.isRead).length;
 
   function navigate(page) {
     setActivePage(page);
+  }
+
+  function handleSignOut() {
+    logout();
+    navigateTo("/login");
   }
 
   return (
@@ -34,6 +42,7 @@ export default function App() {
         unreadCount={unreadCount}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        onSignOut={handleSignOut}
       />
 
       <div className="shell-main">
@@ -51,7 +60,12 @@ export default function App() {
           {activePage === "complaints" && <Complaints />}
           {activePage === "reviews" && <Reviews />}
           {activePage === "settings" && (
-            <Settings currentRole={currentRole} onRoleChange={setCurrentRole} onNavigate={navigate} />
+            <Settings
+              currentRole={currentRole}
+              onRoleChange={setCurrentRole}
+              onNavigate={navigate}
+              onSignOut={handleSignOut}
+            />
           )}
           {activePage === "edit-profile" && <EditProfile onNavigate={navigate} />}
           {activePage === "change-password" && <ChangePassword onNavigate={navigate} />}

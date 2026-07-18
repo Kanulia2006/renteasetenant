@@ -1,0 +1,348 @@
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg);
+}
+
+.auth-brand {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  background: linear-gradient(160deg, var(--brand-700), var(--brand-500));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-brand::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  right: -140px;
+  bottom: -160px;
+}
+
+.auth-brand::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  right: -40px;
+  bottom: -60px;
+}
+
+@media (max-width: 900px) {
+  .auth-brand {
+    display: none;
+  }
+}
+
+.auth-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-brand-mark-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-brand-mark-name {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.auth-brand-mark-tag {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.auth-brand-copy {
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-brand-headline {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.auth-brand-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.auth-brand-points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.auth-brand-point {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-brand-foot {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-form-wrap {
+  flex: 1;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 32px;
+}
+
+@media (min-width: 901px) {
+  .auth-form-wrap {
+    flex: 0 0 460px;
+    max-width: 460px;
+    padding: 40px 48px;
+  }
+}
+
+.auth-form-head {
+  margin-bottom: 24px;
+}
+
+.auth-form-title {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+}
+
+.auth-form-sub {
+  font-size: 13.5px;
+  color: var(--ink-500);
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--line-soft);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.auth-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-500);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.auth-tab.is-active {
+  background: var(--card);
+  color: var(--brand-600);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-error {
+  background: var(--red-50);
+  color: var(--red-700);
+  border: 1px solid #fecdd3;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.auth-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+
+.auth-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--ink-500);
+}
+
+.auth-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-600);
+  border: none;
+  background: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.auth-demo-note {
+  margin-top: 22px;
+  padding: 12px 14px;
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  color: var(--brand-700);
+  line-height: 1.5;
+}
+
+.auth-switch {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-500);
+}
+
+/* ── Role select ── */
+.role-select-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 40px 20px;
+}
+
+.role-select-card {
+  max-width: 460px;
+  width: 100%;
+}
+
+.role-select-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--brand-500);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.role-select-title {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--ink-900);
+  text-align: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+}
+
+.role-select-sub {
+  font-size: 14px;
+  color: var(--ink-500);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.role-option:hover {
+  border-color: var(--brand-500);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.role-option-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-50);
+  color: var(--brand-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.role-option-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-900);
+  margin-bottom: 2px;
+}
+
+.role-option-sub {
+  font-size: 12.5px;
+  color: var(--ink-500);
+}
+
+.role-option-arrow {
+  margin-left: auto;
+  color: var(--ink-400);
+  flex-shrink: 0;
+}
+
+.role-select-back {
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* ── Coming soon ── */
+.coming-soon-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 24px;
+  background: var(--bg);
+}

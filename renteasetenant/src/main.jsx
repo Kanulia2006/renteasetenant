@@ -3,16 +3,40 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
+import AdminApp from "./admin/AdminApp.jsx";
+import LoginPage from "./auth/LoginPage.jsx";
+import RoleSelect from "./auth/RoleSelect.jsx";
+import ComingSoon from "./auth/ComingSoon.jsx";
+import RequireAuth from "./lib/RequireAuth.jsx";
+import LandingPage from "./marketing/LandingPage.jsx";
+import PropertyDetails from "./marketing/PropertyDetails.jsx";
 
-// Note: the original project referenced an Admin.jsx that wasn't part of
-// the files shared for this redesign, so the /admin route has been left
-// out for now. Add it back the same way once that page exists.
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/tenant" replace />} />
-        <Route path="/tenant" element={<App />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/properties/:id" element={<PropertyDetails />} />
+        <Route path="/get-started" element={<RoleSelect />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/tenant"
+          element={
+            <RequireAuth role="tenant">
+              <App />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth role="admin">
+              <AdminApp />
+            </RequireAuth>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

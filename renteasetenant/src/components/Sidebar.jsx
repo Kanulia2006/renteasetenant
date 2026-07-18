@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Home,
+  Building2,
   LayoutDashboard,
   CreditCard,
   FileText,
@@ -20,7 +20,7 @@ const navItems = [
   { icon: Settings, label: "Settings", page: "settings" },
 ];
 
-export default function Sidebar({ activePage, onNavigate, currentRole, onRoleChange, unreadCount, isOpen, onClose }) {
+export default function Sidebar({ activePage, onNavigate, currentRole, onRoleChange, unreadCount, isOpen, onClose, onSignOut }) {
   const [roleOpen, setRoleOpen] = useState(false);
 
   function go(page) {
@@ -34,7 +34,7 @@ export default function Sidebar({ activePage, onNavigate, currentRole, onRoleCha
       <aside className={`sidebar ${isOpen ? "is-open" : ""}`}>
         <div className="sidebar-brand">
           <div className="sidebar-brand-mark">
-            <Home size={19} strokeWidth={2.3} />
+            <Building2 size={19} strokeWidth={2.3} />
           </div>
           <div>
             <div className="sidebar-brand-name">RentEase</div>
@@ -94,7 +94,7 @@ export default function Sidebar({ activePage, onNavigate, currentRole, onRoleCha
             <div className="sidebar-user-name">{user.name}</div>
             <div className="sidebar-user-role">{currentRole}</div>
           </div>
-          <button className="icon-btn" aria-label="Sign out" onClick={() => alert("Signing out...")}>
+          <button className="icon-btn" aria-label="Sign out" onClick={onSignOut}>
             <LogOut size={17} />
           </button>
         </div>

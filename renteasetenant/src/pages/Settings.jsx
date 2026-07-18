@@ -31,7 +31,7 @@ function SettingsRow({ icon: Icon, title, subtitle, onClick }) {
   );
 }
 
-export default function Settings({ currentRole, onRoleChange, onNavigate }) {
+export default function Settings({ currentRole, onRoleChange, onNavigate, onSignOut }) {
   return (
     <div>
       <div className="page-head">
@@ -74,7 +74,7 @@ export default function Settings({ currentRole, onRoleChange, onNavigate }) {
         <SettingsRow icon={Star} title="My Reviews" subtitle="Leave or manage property reviews" onClick={() => onNavigate("reviews")} />
       </div>
 
-      <button className="btn btn-danger-soft btn-block max-w" onClick={() => alert("Signing out...")}>
+      <button className="btn btn-danger-soft btn-block max-w" onClick={onSignOut}>
         <LogOut size={16} /> Sign Out
       </button>
     </div>
